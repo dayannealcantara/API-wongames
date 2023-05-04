@@ -21,6 +21,10 @@
       "type": "uid",
       "targetField": "name",
       "required": true
+    },
+    "games": {
+      "via": "publish",
+      "collection": "game"
     }
   }
 }

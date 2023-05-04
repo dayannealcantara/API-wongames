@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "publishes",
+  "info": {
+    "name": "publish"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "default": "name"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name",
+      "required": true
+    }
+  }
+}

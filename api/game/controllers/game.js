@@ -1,8 +1,7 @@
-'use strict';
-
 module.exports = {
-  populate: (ctx) => {
-    console.log("Initializing")
-    ctx.send({ ok: true })
+  populate: async (ctx) => {
+    console.log("Starting to populate...")
+    await strapi.services.game.populate()
+    ctx.send("Finished populating!")
   }
 };

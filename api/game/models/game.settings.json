@@ -2,15 +2,12 @@
   "kind": "collectionType",
   "collectionName": "games",
   "info": {
-    "name": "game",
-    "description": ""
+    "name": "game"
   },
   "options": {
     "increments": true,
-    "timestamps": true,
-    "draftAndPublish": true
+    "timestamps": true
   },
-  "pluginOptions": {},
   "attributes": {
     "name": {
       "type": "string",
@@ -42,12 +39,12 @@
     "rating": {
       "type": "enumeration",
       "enum": [
-        "BR0",
-        "BR10",
-        "BR12",
-        "BR14",
-        "BR16",
-        "BR18"
+        "FREE",
+        "pegi3",
+        "pegi7",
+        "pegi12",
+        "pegi16",
+        "pegi18"
       ]
     },
     "cover": {
@@ -57,8 +54,7 @@
         "images"
       ],
       "plugin": "upload",
-      "required": false,
-      "pluginOptions": {}
+      "required": false
     },
     "gallery": {
       "collection": "file",
@@ -67,8 +63,7 @@
         "images"
       ],
       "plugin": "upload",
-      "required": false,
-      "pluginOptions": {}
+      "required": false
     },
     "categories": {
       "collection": "category",
@@ -85,8 +80,8 @@
       "via": "games",
       "dominant": true
     },
-    "publish": {
-      "model": "publish",
+    "publisher": {
+      "model": "publisher",
       "via": "games"
     }
   }

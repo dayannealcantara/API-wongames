@@ -11,33 +11,33 @@
   },
   "devDependencies": {},
   "dependencies": {
-    "jsdom": "16",
-    "knex": "0.21.18",
-    "pg": "8.5.1",
-    "slugify": "^1.6.6",
-    "strapi": "3.6.8",
-    "strapi-admin": "3.6.8",
-    "strapi-connector-bookshelf": "3.6.8",
-    "strapi-plugin-ckeditor5": "1.14.0",
-    "strapi-plugin-content-manager": "3.6.8",
-    "strapi-plugin-content-type-builder": "3.6.8",
-    "strapi-plugin-email": "3.6.8",
+    "@ckeditor/ckeditor5-build-classic": "^21.0.0",
+    "@ckeditor/ckeditor5-react": "^2.1.0",
+    "jsdom": "^16.3.0",
+    "knex": "<0.20.0",
+    "pg": "latest",
+    "slugify": "^1.4.5",
+    "strapi": "3.1.2",
+    "strapi-admin": "3.1.2",
+    "strapi-connector-bookshelf": "3.1.2",
+    "strapi-plugin-content-manager": "3.1.2",
+    "strapi-plugin-content-type-builder": "3.1.2",
+    "strapi-plugin-email": "3.1.2",
     "strapi-plugin-entity-relationship-chart": "https://github.com/willianjusten/strapi-plugin-entity-relationship-chart",
-    "strapi-plugin-graphql": "3.6.8",
-    "strapi-plugin-i18n": "3.6.8",
-    "strapi-plugin-upload": "3.6.8",
-    "strapi-plugin-users-permissions": "3.6.8",
-    "strapi-utils": "3.6.8"
+    "strapi-plugin-graphql": "3.1.2",
+    "strapi-plugin-upload": "3.1.2",
+    "strapi-plugin-users-permissions": "3.1.2",
+    "strapi-utils": "3.1.2"
   },
   "author": {
     "name": "A Strapi developer"
   },
   "strapi": {
-    "uuid": "2caafd41-16ad-49d5-834f-a49ce448ca91"
+    "uuid": "d5828e28-e5df-4086-a82a-0d6c415cd518"
   },
   "engines": {
-    "node": ">=10.16.0 <=14.x.x",
-    "npm": "^6.0.0"
+    "node": ">=10.0.0",
+    "npm": ">=6.0.0"
   },
   "license": "MIT"
 }

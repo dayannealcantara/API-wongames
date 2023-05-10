@@ -20,7 +20,8 @@ import SocialLink from "./SocialLink";
 
 const FIRST_BLOCK_LINKS = [
   {
-    link: "https://strapi.io/documentation/developer-docs/latest/getting-started/quick-start.html#_4-create-a-category-content-type",
+    link:
+      "https://strapi.io/documentation/v3.x/getting-started/quick-start.html#_4-create-a-category-content-type",
     contentId: "app.components.BlockLink.documentation.content",
     titleId: "app.components.BlockLink.documentation",
   },
@@ -34,7 +35,7 @@ const FIRST_BLOCK_LINKS = [
 const SOCIAL_LINKS = [
   {
     name: "GitHub",
-    link: "https://github.com/dayannealcantara/API-wongames",
+    link: "https://github.com/React-avancado/",
   },
   {
     name: "Slack",
@@ -42,9 +43,10 @@ const SOCIAL_LINKS = [
   },
   {
     name: "Twitter",
-    link: "https://twitter.com/DayanneAlcanta2",
+    link: "https://twitter.com/Willian_Justen",
   },
 ];
+
 const HomePage = () => {
   return (
     <>

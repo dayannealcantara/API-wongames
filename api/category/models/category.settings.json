@@ -1,16 +1,13 @@
 {
   "kind": "collectionType",
-  "collectionName": "category",
+  "collectionName": "categories",
   "info": {
-    "name": "category",
-    "description": ""
+    "name": "category"
   },
   "options": {
     "increments": true,
-    "timestamps": true,
-    "draftAndPublish": true
+    "timestamps": true
   },
-  "pluginOptions": {},
   "attributes": {
     "name": {
       "type": "string",
@@ -19,8 +16,8 @@
     },
     "slug": {
       "type": "uid",
-      "required": true,
-      "targetField": "name"
+      "targetField": "name",
+      "required": true
     },
     "games": {
       "via": "categories",

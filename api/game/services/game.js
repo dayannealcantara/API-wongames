@@ -1,24 +1,35 @@
 "use strict";
+
+/**
+ * Read the documentation (https://strapi.io/documentation/v3.x/concepts/services.html#core-services)
+ * to customize this service
+ */
+
 const axios = require("axios");
 const slugify = require("slugify");
 
 async function getGameInfo(slug) {
-  try {
-    const jsdom = require("jsdom");
-    const { JSDOM } = jsdom;
-    const body = await axios.get(`https://www.gog.com/game/${slug}`);
-    const dom = new JSDOM(body.data);
+  const jsdom = require("jsdom");
+  const { JSDOM } = jsdom;
+  const body = await axios.get(`https://www.gog.com/game/${slug}`);
+  const dom = new JSDOM(body.data);
 
-    const description = dom.window.document.querySelector(".description");
+  const ratingElement = dom.window.document.querySelector(
+    ".age-restrictions__icon use"
+  );
 
-    return {
-      rating: "BR0",
-      short_description: description.textContent.trim().slice(0, 160),
-      description: description.innerHTML,
-    };
-  } catch (e) {
-    console.log("getGameInfo", Exception(e));
-  }
+  const description = dom.window.document.querySelector(".description");
+
+  return {
+    rating: ratingElement
+      ? ratingElement
+          .getAttribute("xlink:href")
+          .replace(/_/g, "")
+          .replace(/[^\w-]+/g, "")
+      : "Free",
+    short_description: description.textContent.trim().slice(0, 160),
+    description: description.innerHTML,
+  };
 }
 
 async function getByName(name, entityName) {
@@ -32,27 +43,24 @@ async function create(name, entityName) {
   if (!item) {
     return await strapi.services[entityName].create({
       name,
-      slug: slugify(name, { strict: true, lower: true }),
+      slug: slugify(name, { lower: true }),
     });
   }
 }
 
-
 module.exports = {
   populate: async (params) => {
-    try {
-      const gogApiUrl = `https://www.gog.com/games/ajax/filtered?mediaType=game&${qs.stringify(
-        params
-      )}`;
+    const gogApiUrl = `https://www.gog.com/games/ajax/filtered?mediaType=game&page=1&sort=popularity`;
 
-      const {
-        data: { products },
-      } = await axios.get(gogApiUrl);
+    const {
+      data: { products },
+    } = await axios.get(gogApiUrl);
 
-      await createManyToManyData(products);
-      await createGames(products);
-    } catch (e) {
-      console.log("populate", Exception(e));
-    }
+    // console.log(products[0]);
+
+    await create(products[1].publisher, "publisher");
+    await create(products[1].developer, "developer");
+
+    // console.log(await getGameInfo(products[1].slug));
   },
 };

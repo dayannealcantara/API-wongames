@@ -19,16 +19,10 @@ const Wrapper = styled.div`
     letter-spacing: 0.05rem;
     vertical-align: middle;
     color: ${({ theme }) => theme.main.colors.strapi["gray-light"]};
+
     a {
       color: ${({ theme }) => theme.main.colors.won.orange};
     }
-  }
-`;
-
-const A = styled.a`
-  &:hover {
-    color: #007bff;
-    text-decoration: underline;
   }
 `;
 
@@ -51,4 +45,3 @@ Wrapper.propTypes = {
 };
 
 export default Wrapper;
-export { A };
